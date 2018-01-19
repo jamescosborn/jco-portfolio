@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jco-portfolio", "jco-portfolio\jco-portfolio.csproj", "{8C608C25-B52C-405D-9165-F76613C40B5E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8C608C25-B52C-405D-9165-F76613C40B5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C608C25-B52C-405D-9165-F76613C40B5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C608C25-B52C-405D-9165-F76613C40B5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C608C25-B52C-405D-9165-F76613C40B5E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8FE06CFD-0DAE-45D4-898B-CB1D7932F202}
+	EndGlobalSection
+EndGlobal
