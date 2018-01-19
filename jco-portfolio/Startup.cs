@@ -20,17 +20,29 @@ namespace Portfolio
                 .AddJsonFile("appsettings.json");
             Configuration = builder.Build();
         }
+
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
             services.AddEntityFrameworkMySql()
-                    .AddDbContext<ApplicationDbContext>(options =>
-                                              options
-                                                   .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
+              .AddDbContext<ApplicationDbContext>(options =>
+                  options.UseMySql(Configuration["ConnectionStrings:DefaultConnection"])
+              );
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>()
-                .AddDefaultTokenProviders();
+              .AddEntityFrameworkStores<ApplicationDbContext>()
+              .AddDefaultTokenProviders();
+
+
+            // This is new:   
+            services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+            {
+                options.Password.RequireUppercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequiredLength = 0;
+                options.Password.RequireDigit = false;
+            });
         }
 
         public void Configure(IApplicationBuilder app)
