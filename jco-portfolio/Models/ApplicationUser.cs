@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
-namespace jco-portfolio.Models
+namespace Portfolio.Models
 {
-    public class Class
+    public class ApplicationUser : IdentityUser
     {
+
     }
 }
