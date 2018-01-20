@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using Portfolio.Models;
+using System.Threading.Tasks;
+using Portfolio.ViewModels;
 
 namespace Portfolio.Controllers
 {
@@ -20,6 +22,26 @@ namespace Portfolio.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+
+        public IActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Register(RegisterViewModel model)
+        {
+            var user = new ApplicationUser { UserName = model.Email };
+            IdentityResult result = await _userManager.CreateAsync(user, model.Password);
+            if (result.Succeeded)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View();
+            }
         }
     }
 }
