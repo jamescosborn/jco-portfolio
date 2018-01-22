@@ -29,12 +29,12 @@ namespace Portfolio.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Create(Item item)
+        public async Task<IActionResult> Create(Post post)
         {
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             var currentUser = await _userManager.FindByIdAsync(userId);
-            item.User = currentUser;
-            _db.Items.Add(item);
+            post.User = currentUser;
+            _db.Posts.Add(post);
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
