@@ -46,15 +46,15 @@ namespace Portfolio.Controllers
 
         public IActionResult Edit(int id)
         {
-            var thisPost = db.Posts.FirstOrDefault(posts => posts.PostId == id);
+            var thisPost = _db.Posts.FirstOrDefault(posts => posts.Id == id);
             return View(thisPost);
         }
 
         [HttpPost]
         public IActionResult Edit(Post post)
         {
-            db.Entry(post).State = EntityState.Modified;
-            db.SaveChanges();
+            _db.Entry(post).State = EntityState.Modified;
+            _db.SaveChanges();
             return RedirectToAction("Index");
         }
     }
