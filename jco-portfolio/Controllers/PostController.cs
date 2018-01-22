@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using Portfolio.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace Portfolio.Controllers
 {
@@ -39,6 +40,20 @@ namespace Portfolio.Controllers
             post.User = currentUser;
             _db.Posts.Add(post);
             _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Edit(int id)
+        {
+            var thisPost = db.Posts.FirstOrDefault(posts => posts.PostId == id);
+            return View(thisPost);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Post post)
+        {
+            db.Entry(post).State = EntityState.Modified;
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
     }
