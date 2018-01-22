@@ -34,8 +34,6 @@ And repeat
 ## Known Bugs
 
 * On my machine, you need to force quit the dotnet process in task manager every time you close the app.  
-* Register won't take you to Index  
-* Can't see new registers in the database.  
 
 ## Contributors
 
