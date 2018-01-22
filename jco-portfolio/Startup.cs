@@ -48,6 +48,7 @@ namespace Portfolio
         public void Configure(IApplicationBuilder app)
         {
             app.UseIdentity();
+            app.UseDeveloperExceptionPage();
 
             app.UseMvc(routes =>
             {
