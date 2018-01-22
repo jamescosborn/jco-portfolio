@@ -57,5 +57,20 @@ namespace Portfolio.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public IActionResult Delete(int id)
+        {
+            var thisPost = _db.Posts.FirstOrDefault(posts => posts.Id == id);
+            return View(thisPost);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var thisPost = _db.Posts.FirstOrDefault(posts => posts.Id == id);
+            _db.Posts.Remove(thisPost);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
