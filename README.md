@@ -29,7 +29,13 @@ And repeat
 ```
 ## Scheduled Updates
 
--everything  
+* Separate landing page from blog page
+* Display personal info on landing page
+* Display list of blog posts on blog page
+* Allow CRUD of blog posts only as admin
+* Refactor CRUD to use Ajax for Get methods
+
+Anything else?
 
 ## Known Bugs
 
