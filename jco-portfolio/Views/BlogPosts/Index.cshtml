@@ -5,6 +5,20 @@
 
 @using System.Security.Claims
 
-<h2>Here is your list of blog posts, @User.Identity.Name</h2>
+<h2>Welcome Admin, @User.Identity.Name</h2>
 <hr />
+@if (Model.Any())
+{
+    <ul>
+        @foreach (var listPost in Model)
+        {
+        <li>@Html.DisplayFor(modelPost => listPost.Title) | @Html.ActionLink("Details", "Details", new { id = listPost.Id }) | @Html.ActionLink("Edit", "Edit", new { id = listPost.Id }) | @Html.ActionLink("Delete", "Delete", new { id = listPost.Id })</li>
+        }
+    </ul>
+}
+else
+{
+    <p>No blog posts!</p>
+}
+
 @Html.ActionLink("Create new", "Create")
