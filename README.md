@@ -1,10 +1,10 @@
 # James Carl Osborn's Technical Portfolio
 
-A collection of web applications developed by James Carl Osborn, a half-elf of Earth, Sol System.
+A collection of web applications developed by James Carl Osborn.
 
 ## Getting Started
 
-Startup Instructions for your PC.
+Startup Instructions for the app.
 
 ### Technologies Used
 
