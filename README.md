@@ -34,6 +34,7 @@ And repeat
 ## Known Bugs
 
 * On my machine, you need to force quit the dotnet process in task manager every time you close the app.  
+* Style sheet master.css is not being applied.
 
 ## Contributors
 
