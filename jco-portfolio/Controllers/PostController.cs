@@ -19,9 +19,12 @@ namespace Portfolio.Controllers
             _db = db;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var currentUser = await _userManager.FindByIdAsync(userId);
+            return View(_db.Posts.Where(x => x.User.Id == currentUser.Id));
+            //Comment, where it returns the view above, this needs to be changed so everyone can see posts.
         }
 
         public IActionResult Create()
