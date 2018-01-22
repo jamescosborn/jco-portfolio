@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Portfolio.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 namespace Portfolio.Controllers
 {
