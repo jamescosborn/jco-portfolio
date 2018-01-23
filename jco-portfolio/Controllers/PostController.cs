@@ -25,7 +25,7 @@ namespace Portfolio.Controllers
         {
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             var currentUser = await _userManager.FindByIdAsync(userId);
-            return View(_db.Posts.Where(x => x.User.Id == currentUser.Id));
+            return View(_db.Posts.Include(p => p.Comments));
             //Comment, where it returns the view above, this needs to be changed so everyone can see posts.
         }
 
