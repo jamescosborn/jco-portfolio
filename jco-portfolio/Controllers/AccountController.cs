@@ -69,5 +69,19 @@ namespace Portfolio.Controllers
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index");
         }
+
+        public IActionResult GoToBlog()
+        {
+            ViewData["Message"] = "Your blog posts page.";
+
+            return View();
+        }
+
+        public IActionResult GoToProjects()
+        {
+            ViewData["Message"] = "Your projects page.";
+
+            return View();
+        }
     }
 }
