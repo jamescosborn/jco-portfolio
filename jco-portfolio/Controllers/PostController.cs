@@ -9,7 +9,6 @@ using System.Security.Claims;
 
 namespace Portfolio.Controllers
 {
-    [Authorize]
     public class PostController : Controller
     {
         private readonly ApplicationDbContext _db;
@@ -21,11 +20,9 @@ namespace Portfolio.Controllers
             _db = db;
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            var currentUser = await _userManager.FindByIdAsync(userId);
-            return View(_db.Posts.Include(p => p.Comments));
+            return View();
             //Comment, where it returns the view above, this needs to be changed so everyone can see posts.
         }
 
@@ -33,6 +30,7 @@ namespace Portfolio.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public async Task<IActionResult> Create(Post post)
         {

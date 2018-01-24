@@ -17,7 +17,7 @@ namespace Portfolio
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
-                .AddJsonFile("appsettings.json");
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
             Configuration = builder.Build();
         }
 
@@ -49,12 +49,13 @@ namespace Portfolio
         {
             app.UseIdentity();
             app.UseDeveloperExceptionPage();
+            app.UseStaticFiles();
 
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Account}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
             app.Run(async (context) =>
             {

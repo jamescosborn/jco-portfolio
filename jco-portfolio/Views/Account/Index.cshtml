@@ -6,13 +6,20 @@
 <br />
 <br />
 
-<address>
-    1621 NE Knott St<br />
-    Portland, OR 97212<br />
-    P:
-    971.313.4595
-</address>
+@using System.Security.Claims
 
-<address>
-    <strong>Email:</strong> <a href="jamescarlosborn@gmail.com">jamescarlosborn@gmail.com</a><br />
-</address>
+<h2>Admin Login</h2>
+<hr />
+@if (User.Identity.IsAuthenticated)
+{
+    <p>Hello @User.Identity.Name!</p>
+    @using (Html.BeginForm("LogOff", "Account"))
+    {
+        <input type="submit" class="btn btn-default" value="Log out" />
+    }
+}
+else
+{
+    <p>@Html.ActionLink("Register", "Register")</p>
+    <p>@Html.ActionLink("Log in", "Login")</p>
+}

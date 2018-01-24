@@ -20,20 +20,12 @@
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a asp-area="" asp-controller="Account" asp-action="Index" class="navbar-brand">James Carl Osborn</a>
-            </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Blog", "Index", "Account")</li>
-                    <a asp-area="" asp-controller="Account" asp-action="GoToProjects">Projects</a></li>
-                    <li><a asp-area="" asp-controller="Account" asp-action="GoToAdmin">Admin</a></li>
+                    <li>@Html.ActionLink("James Carl Osborn", "Index", "Home")</li>
+                    <li>@Html.ActionLink("BLOG", "Index", "Post")</li>
+                    <li>@Html.ActionLink("Admin", "Index", "Account")</li>
+                    <li>@Html.ActionLink("Projects (WIP-BROKEN LINK)", "Index", "Project")</li>
                 </ul>
             </div>
         </div>
