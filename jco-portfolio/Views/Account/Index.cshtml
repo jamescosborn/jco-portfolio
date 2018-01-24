@@ -7,6 +7,7 @@
 <br />
 
 @using System.Security.Claims
+@model Portfolio.Models.Post
 
 <h2>Admin Login</h2>
 <hr />
@@ -17,20 +18,7 @@
     {
         <input type="submit" class="btn btn-default" value="Log out" />
     }
-
-    @model Portfolio.Models.Post
-
-    <h2>Add a new blog post</h2>
-    <hr />
-    @using (Html.BeginForm())
-    {
-        @Html.LabelFor(model => model.Title)
-        @Html.EditorFor(model => model.Title)
-        @Html.LabelFor(model => model.Body)
-        @Html.EditorFor(model => model.Body)
-        <input type="submit" value="Create" />
-    }
-    @Html.ActionLink("Back to List", "Index")
+    <p>@Html.ActionLink("Create a new blog post", "Create", "Post")</p>
 
 }
 else
