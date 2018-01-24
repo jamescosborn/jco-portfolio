@@ -11,14 +11,7 @@ namespace Portfolio.Controllers
 {
     public class PostController : Controller
     {
-        private readonly ApplicationDbContext _db;
-        private readonly UserManager<ApplicationUser> _userManager;
-
-        public PostController(UserManager<ApplicationUser> userManager, ApplicationDbContext db)
-        {
-            _userManager = userManager;
-            _db = db;
-        }
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         public IActionResult Index()
         {
@@ -34,37 +27,37 @@ namespace Portfolio.Controllers
         [HttpPost]
         public IActionResult Create(Post post)
         {
-            _db.Posts.Add(post);
-            _db.SaveChanges();
+            db.Posts.Add(post);
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
 
         public IActionResult Edit(int id)
         {
-            var thisPost = _db.Posts.FirstOrDefault(posts => posts.Id == id);
+            var thisPost = db.Posts.FirstOrDefault(posts => posts.Id == id);
             return View(thisPost);
         }
 
         [HttpPost]
         public IActionResult Edit(Post post)
         {
-            _db.Entry(post).State = EntityState.Modified;
-            _db.SaveChanges();
+            db.Entry(post).State = EntityState.Modified;
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
 
         public IActionResult Delete(int id)
         {
-            var thisPost = _db.Posts.FirstOrDefault(posts => posts.Id == id);
+            var thisPost = db.Posts.FirstOrDefault(posts => posts.Id == id);
             return View(thisPost);
         }
 
         [HttpPost, ActionName("Delete")]
         public IActionResult DeleteConfirmed(int id)
         {
-            var thisPost = _db.Posts.FirstOrDefault(posts => posts.Id == id);
-            _db.Posts.Remove(thisPost);
-            _db.SaveChanges();
+            var thisPost = db.Posts.FirstOrDefault(posts => posts.Id == id);
+            db.Posts.Remove(thisPost);
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
     }
