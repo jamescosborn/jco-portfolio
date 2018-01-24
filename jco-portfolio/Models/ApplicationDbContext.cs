@@ -10,6 +10,10 @@ namespace Portfolio.Models
 
         }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+           => optionsBuilder
+               .UseMySql(@"Server=localhost;Port=3306;database=jcoportfolio;uid=root;pwd=root;");
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
