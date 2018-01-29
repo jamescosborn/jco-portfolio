@@ -69,12 +69,19 @@ jamescarlosborn@gmail.com
 ## Technical Specs
 -Ajax required for GET methods on Post CRUD
 
+## Developer Notes  
+For info on API calls to starred repos:   
+-https://developer.github.com/v3/activity/starring/  
+
+For info on API call parameters:  
+-https://developer.github.com/v3/#parameters  
+
 ## License
 
 This project is licensed under the MIT License.
 
 ## Acknowledgments
 
-* Thank you to my teachers, fellow students, friends, family and pets for your continued support and inspiration.  
+Thank you to my teachers, fellow students, friends, family and pets for your continued support and inspiration.  
 
 :shipit:
