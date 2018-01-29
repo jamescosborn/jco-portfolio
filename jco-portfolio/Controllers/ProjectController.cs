@@ -16,10 +16,5 @@ namespace Portfolio.Controllers
             return View();
         }
 
-        public IActionResult GetStarredRepos()
-        {
-            var starredRepos = Project.GetStarredRepos();
-            return View(starredRepos);
-        }
     }
 }

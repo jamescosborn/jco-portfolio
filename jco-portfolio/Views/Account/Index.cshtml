@@ -14,11 +14,13 @@
 @if (User.Identity.IsAuthenticated)
 {
     <p>Hello @User.Identity.Name!</p>
-    @using (Html.BeginForm("LogOff", "Account"))
+    @(Html.BeginForm("LogOff", "Account"))
     {
         <input type="submit" class="btn btn-default" value="Log out" />
     }
-    <p>@Html.ActionLink("Create a new blog post", "Create", "Post")</p>
+    <h2>Display Create Post form with Ajax</h2>
+    <h4 class="display-view">CLICK ME</h4>
+    <div id="result4"></div>
 
 }
 else
@@ -26,3 +28,17 @@ else
     <p>@Html.ActionLink("Register", "Register")</p>
     <p>@Html.ActionLink("Log in", "Login")</p>
 }
+
+<script type="text/javascript">
+	$(document).ready(function() {
+	    $('.display-view').click(function () {
+            $.ajax({
+	            type: 'GET',
+	            url: '@Url.Action("Create", "Post")',
+	            success: function(result) {
+                    $('#result4').html(result);
+	            }
+	        });
+	    });
+	});
+</script>
