@@ -15,6 +15,6 @@ namespace Portfolio.Models
         public string Body { get; set; }
         public string Author { get; set; }
         public int PostId { get; set; }
-        public virtual Post post { get; set; }
+        public virtual Post Post { get; set; }
     }
 }
