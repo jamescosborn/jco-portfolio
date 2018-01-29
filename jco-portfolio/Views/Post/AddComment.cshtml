@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "AddReview";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model Portfolio.Models.Comment
+
+<html>
+<head>
+    <title>Add a new comment</title>
+</head>
+<body>
+    <h4>Add a new comment</h4>
+    <hr />
+    @using (Html.BeginForm())
+    {
+        Model.PostId = ViewBag.PostId;
+        @Html.HiddenFor(model => model.PostId)
+        <p>
+            @Html.LabelFor(model => model.Body)
+            @Html.TextBoxFor(model => model.Body)
+        </p>
+
+        <p>
+            @Html.LabelFor(model => model.Author)
+            @Html.TextBoxFor(model => model.Author)
+        </p>
+        <input type="submit" value="AddComment" />
+    }
+    <p>@Html.ActionLink("Back to blog", "Index")</p>
+</body>
+</html>
