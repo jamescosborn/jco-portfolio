@@ -1,5 +1,24 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Comments";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+@model IEnumerable<Portfolio.Models.Comment>
+
+<html>
+<head>
+    <title>Comments</title>
+</head>
+<body>
+    <h2>Comments for this post</h2>
+    @foreach (var listComment in Model)
+    {
+        <p><strong>@Html.DisplayNameFor(modelComment => listComment.Author):</strong></p>
+        <p>@Html.DisplayFor(modelComment => listComment.Author)</p>
+
+        <p><strong>@Html.DisplayNameFor(modelComment => listComment.Body):</strong></p>
+        <p>@Html.DisplayFor(modelComment => listComment.Body)</p>
+    }
+    <p>@Html.ActionLink("Back to blog", "Index")</p>
+</body>
+</html>

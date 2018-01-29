@@ -1,12 +1,15 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Authorization;
-using Portfolio.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
-using System.Collections.Generic;
+using Portfolio.Models;
+
 
 namespace Portfolio.Controllers
 {
@@ -18,7 +21,6 @@ namespace Portfolio.Controllers
         {
             List<Post> model = db.Posts.ToList();
             return View(model);
-            //Comment, where it returns the view above, this needs to be changed so everyone can see posts.
         }
 
         public IActionResult Create()
@@ -67,6 +69,26 @@ namespace Portfolio.Controllers
         {
             Post thisPost = db.Posts.FirstOrDefault(posts => posts.Id == id);
             return View(thisPost);
+        }
+
+        public IActionResult AddComment(int id)
+        {
+            Comment comment = new Comment();
+            ViewBag.PostId = id;
+            return View(comment);
+        }
+
+        [HttpPost]
+        public IActionResult AddComment(Comment comment)
+        {
+            db.Comments.Add(comment);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult ViewComments(int id)
+        {
+            return View(db.Comments.Where(c => c.PostId == id).Include(comments => comments.Post).ToList());
         }
     }
 }
