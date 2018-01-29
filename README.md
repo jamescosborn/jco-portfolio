@@ -58,9 +58,16 @@ jamescarlosborn@gmail.com
 
 | Description        | Input           | Output  |
 | ------------- |:-------------:| -----:|
-| example       | example       | ex    |
-| example       | example       | ex    |
-| example       | example       | ex    |
+| User is greeted with a landing page, where they see __a picture__       | localhost:5000       | User sees landing page    |
+| User can navigate to a blog section with a collection of __blog posts__       | Clicks "Blogs"       | User is shown all blog posts    |
+| Clicking on a blog post, the user will see all the blog's specific __comments__       | Clicks "Post A"       | User sees all comments of "Post A"    |
+| User is able to log on/off as an administrator | Clicks "Admin" | User is logged in if they have the credentials |
+| Only admins can Create, Read, Update, Delete posts | Create a new blog post | Blog post is added to list |
+| Only admins are able to remove Comments | Remove comment from blog post | Comment no longer appears on post |
+| Projects section displays the top 3 starred GitHub repos | Clicks "Projects" | The top 3 starred GitHub repos for JCO are displayed  |
+
+## Technical Specs
+-Ajax required for GET methods on Post CRUD
 
 ## License
 
@@ -69,3 +76,5 @@ This project is licensed under the MIT License.
 ## Acknowledgments
 
 * Thank you to my teachers, fellow students, friends, family and pets for your continued support and inspiration.  
+
+:shipit:
