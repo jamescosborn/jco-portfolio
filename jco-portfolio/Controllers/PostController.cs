@@ -6,6 +6,7 @@ using Portfolio.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
+using System.Collections.Generic;
 
 namespace Portfolio.Controllers
 {
@@ -15,7 +16,8 @@ namespace Portfolio.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            List<Post> model = db.Posts.ToList();
+            return View(model);
             //Comment, where it returns the view above, this needs to be changed so everyone can see posts.
         }
 
