@@ -3,3 +3,11 @@
     color: black;
     margin-left: 70px;
 }
+
+hr {
+    border: 0;
+    margin: 0;
+    width: 100%;
+    height: 1px;
+    background: black;
+}
