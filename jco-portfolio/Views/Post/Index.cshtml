@@ -2,7 +2,24 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2>@ViewData["Title"].</h2>
-<h3>@ViewData["Message"]</h3>
 
-<p>You made it! Your blog posts will appear here.</p>
+@model IEnumerable<Portfolio.Models.Post>
+
+<html>
+<head>
+    <title>Blog Posts</title>
+</head>
+<body>
+    <h2>Blog Posts</h2>
+    <ul>
+        @foreach (var listPost in Model)
+        {
+            <li>
+                @Html.DisplayFor(modelPost => listPost.Title) |
+                @Html.ActionLink("Details", "Details", new { id = listPost.Id }) |
+                @Html.ActionLink("Add Comment", "AddComment", new { id = listPost.Id })
+            </li>
+        }
+    </ul>
+</body>
+</html>
