@@ -10,20 +10,21 @@ namespace Portfolio.Models
 {
     public class Project
     {
-        public string Name { get; set; }
-        public string URL { get; set; }
+        public string full_name { get; set; }
+        public string html_url { get; set; }
 
-        public void GetStarredRepos()
+        public static async Task<List<Project>> GetStarredRepos()
         {
-            var client = new RestClient("https://api.github.com/users/jamescosborn/starred");
-            var request = new RestRequest("Accounts/{{Account SID}}/Messages.json", Method.GET);
-            var response = new RestResponse();
-            Task.Run(async () =>
-            {
-                response = await GetResponseContentAsync(client, request) as RestResponse;
-            }).Wait();
+            var client = new RestClient("https://api.github.com");
+            var request = new RestRequest("users/jamescosborn/starred", Method.GET);
+            request.AddHeader("User-Agent", "jamescosborn");
+            request.AddParameter("sort", "starred");
+            request.AddParameter("direction", "asc");
+
+            var response = await GetResponseContentAsync(client, request) as RestResponse;
             JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(response.Content);
-            var repoList = JsonConvert.DeserializeObject<List<Project>>(jsonResponse["projects"].ToString());
+            var repoList = JsonConvert.DeserializeObject(jsonResponse["full_name"].ToString());  
+            List<Project> top3stars = repoList.ToList();
             return repoList;
         }
 
