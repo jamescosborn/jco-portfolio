@@ -3,8 +3,18 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<br />
-<h2>@ViewData["Title"].</h2>
-<h3>@ViewData["Message"]</h3>
+@model IEnumerable<Portfolio.Models.Project>
 
-<h1>Projects (WIP)</h1>
+<h2>Top 3 Starred Repos from my GitHub</h2>
+<hr />
+<ol>
+    @foreach (var project in Model)
+    {
+        <li>
+            <ul>
+                <li>Name: @Html.DisplayFor(modelItem => message.Name)</li>
+                <li>Link: @Html.DisplayFor(modelItem => message.URL)</li>
+            </ul>
+        </li>
+    }
+</ol>
