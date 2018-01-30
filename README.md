@@ -40,14 +40,17 @@ Visual Studio 2017
 
 ## Scheduled Updates
 
-* Build it
-
-Anything else?
+* Styling of Blog posts, index and details
+* Add Email/GitHub/LinkedIn icons
+* Further style landing page
+* Get a new profile picture  
+* Display more info for Top Starred Repos: commits?
+* Style nav bar
+* Bug fixes
 
 ## Known Bugs
 
-* On my machine, you need to force quit the dotnet process in task manager every time you close the app.  
-* Style sheet master.css is not being applied.
+* Microsoft.AspNetCore.Mvc.Rendering.MvcForm appears on Admin page next to Logout button
 
 ## Contributors
 
