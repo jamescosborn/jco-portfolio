@@ -11,9 +11,10 @@ namespace Portfolio.Controllers
 {
     public class ProjectController : Controller
     {
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var result = await Project.GetStarredRepos();
+            return View(result);
         }
 
     }

@@ -2,7 +2,15 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+@model List<Portfolio.Models.Project>
 
 <h2>Top 3 Starred Repos from my GitHub</h2>
 <hr />
+
+@foreach (var project in Model)
+{
+<h2>project name: @project.full_name</h2>
+<h2>link: <a href="@project.url">@project.url</a></h2>
+
+}
+
