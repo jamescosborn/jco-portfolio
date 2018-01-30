@@ -22,9 +22,10 @@ To start the website, you'll need the following:
 1. In your command prompt, enter:  
   `git clone https://github.com/jamescosborn/jco-portfolio.git`
 2. Start your SQL server on MAMP.
-3. Navigate to the folder with the .csproj in it and enter: `dotnet ef migrations add CodeReview`    
-followed by:  
-`dotnet ef database update  `
+3. Navigate to the folder with the .csproj in it and enter:   
+`dotnet restore`  
+`dotnet ef migrations add CodeReview`     
+`dotnet ef database update`  
 4. Enter:  `dotnet run`
 5. In a web browser, navigate to http://localhost:5000 (if the command prompt displays a different local host number, enter that one)
 
