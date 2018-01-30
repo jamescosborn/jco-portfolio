@@ -12,3 +12,7 @@ hr {
     height: 1px;
     background: black;
 }
+
+.display-view {
+    color: blue;
+}
