@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Identity;
 using Portfolio.Models;
 using System.Threading.Tasks;
 using Portfolio.ViewModels;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Portfolio.Controllers
 {
@@ -21,7 +23,8 @@ namespace Portfolio.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            List<Post> model = _db.Posts.ToList();
+            return View(model);
         }
 
         public IActionResult Register()

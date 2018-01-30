@@ -7,14 +7,27 @@
 <br />
 
 @using System.Security.Claims
-@model Portfolio.Models.Post
+@using System.Collections.Generic
+@model IEnumerable<Portfolio.Models.Post>
 
-<h2>Admin Login</h2>
-<hr />
+
 @if (User.Identity.IsAuthenticated)
 {
     <h2>Hello @User.Identity.Name!</h2>
+    <hr />
     <h2>Admin Actions</h2>
+    <h4>Blog Posts</h4>
+    <ul>
+        @foreach (var listPost in Model)
+        {
+        <li>
+            @Html.DisplayFor(modelPost => listPost.Title) |
+            @Html.ActionLink("Details", "Details", "Post", new { id = listPost.Id }) |
+            @Html.ActionLink("Edit", "Edit", "Post", new { id = listPost.Id }) |
+            @Html.ActionLink("Delete", "Delete", "Post", new { id = listPost.Id }) |
+        </li>
+        }
+    </ul>
 
     <h2>Display Create Post form with Ajax</h2>
     <h4 class="display-view">CLICK ME</h4>
@@ -29,6 +42,7 @@
 }
 else
 {
+    <h2>Admin Login</h2>
     <p>@Html.ActionLink("Register", "Register")</p>
     <p>@Html.ActionLink("Log in", "Login")</p>
 }
